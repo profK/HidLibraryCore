@@ -1,0 +1,6 @@
+D:\projects\RiderProjects\HidLibraryCore\HidLibraryCore\obj\Debug\net6.0\HidLibraryCore.csproj.AssemblyReference.cache
+D:\projects\RiderProjects\HidLibraryCore\HidLibraryCore\obj\Debug\net6.0\HidLibraryCore.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\RiderProjects\HidLibraryCore\HidLibraryCore\obj\Debug\net6.0\HidLibraryCore.AssemblyInfoInputs.cache
+D:\projects\RiderProjects\HidLibraryCore\HidLibraryCore\obj\Debug\net6.0\HidLibraryCore.AssemblyInfo.cs
+D:\projects\RiderProjects\HidLibraryCore\HidLibraryCore\obj\Debug\net6.0\HidLibraryCore.ImplicitNamespaceImports.cs
+D:\projects\RiderProjects\HidLibraryCore\HidLibraryCore\obj\Debug\net6.0\HidLibraryCore.csproj.CoreCompileInputs.cache

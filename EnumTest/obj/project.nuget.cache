@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "hm1dqXF/0L+ZKIzRPgubH4o9qYtJxVoxyFYb6h/iI91u4m1go35NVvsctgP8wVdgHnjAXNVDTixAQXrJkSH8JA==",
+  "success": true,
+  "projectFilePath": "D:\\projects\\RiderProjects\\HidLibraryCore\\EnumTest\\EnumTest.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\jpkessel\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.8\\microsoft.netcore.app.host.win-x64.5.0.8.nupkg.sha512"
+  ],
+  "logs": []
+}

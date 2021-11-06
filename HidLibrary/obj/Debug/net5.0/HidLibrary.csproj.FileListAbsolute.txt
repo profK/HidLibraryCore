@@ -1,0 +1,12 @@
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\bin\Debug\net5.0\HidLibrary.deps.json
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\bin\Debug\net5.0\HidLibrary.dll
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\bin\Debug\net5.0\HidLibrary.pdb
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\obj\Debug\net5.0\HidLibrary.csproj.AssemblyReference.cache
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\obj\Debug\net5.0\HidLibrary.GeneratedMSBuildEditorConfig.editorconfig
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\obj\Debug\net5.0\HidLibrary.AssemblyInfoInputs.cache
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\obj\Debug\net5.0\HidLibrary.AssemblyInfo.cs
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\obj\Debug\net5.0\HidLibrary.csproj.CoreCompileInputs.cache
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\obj\Debug\net5.0\HidLibrary.dll
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\obj\Debug\net5.0\refint\HidLibrary.dll
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\obj\Debug\net5.0\HidLibrary.pdb
+D:\projects\RiderProjects\HidLibraryCore\HidLibrary\obj\Debug\net5.0\ref\HidLibrary.dll

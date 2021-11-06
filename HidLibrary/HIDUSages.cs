@@ -1,0 +1,56 @@
+﻿namespace HidLibrary
+{
+    public class HIDUsages
+    {
+        public enum Desktop
+        {
+            Undefined= 0x00,
+        	Pointer =  0x01,
+        	Mouse = 0x02,
+        	Reserved = 0x03,
+        	Joystick = 0x04,
+        	Game_Pad = 0x05,
+        	Keyboard = 0x06,
+        	Keypad = 0x07,
+        	Multi_axis_Controller = 0x08,
+        	X = 0x30,
+        	Y = 0x31,
+        	Z = 0x32,
+        	Rx = 0x33,
+        	Ry = 0x34,
+        	Rz = 0x35,
+        	Slider = 0x36,
+        	Dial = 0x37,
+        	Wheel = 0x38,
+        	Hat_Switch = 0x39,
+        	Counted_Buffer = 0x3A,
+        	Byte_Count = 0x3B,
+        	Motion_Wakeup = 0x3C,
+        	Vx = 0x40,
+        	Vy = 0x41,
+        	Vz = 0x42,
+        	Vbrx = 0x43,
+        	Vbry = 0x44,
+        	Vbrz = 0x45,
+        	Vno = 0x46,
+        	System_Control = 0x80,
+        	System_Power_Down = 0x81,
+        	System_Sleep = 0x82,
+        	System_Wake_Up = 0x83,
+        	System_Context_Menu = 0x84,
+        	System_Main_Menu = 0x85,
+        	System_App_Menu = 0x86,
+        	System_Menu_Help = 0x87,
+        	System_Menu_Exit = 0x88,
+        	System_Menu_Select =0x89,
+        	System_Menu_Right = 0x8A,
+        	System_Menu_Left = 0x8B,
+        	System_Menu_Up = 0x8C,
+        	System_Menu_Down = 0x8D,
+        	D_pad_Up = 0x90,
+        	D_pad_Down = 0x91,
+        	D_pad_Right = 0x92,
+        	D_pad_Left = 0x93
+        }
+    }
+}
