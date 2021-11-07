@@ -1,6 +1,6 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HidLibrary", "HidLibrary\HidLibrary.csproj", "{12A27FC2-10F6-42EC-89D9-22E52E79853A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "HidLibraryCore", "HidLibraryCore\HidLibraryCore.csproj", "{12A27FC2-10F6-42EC-89D9-22E52E79853A}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EnumTest", "EnumTest\EnumTest.csproj", "{C24D11C3-2264-4231-8D45-C384943E2AA8}"
 EndProject

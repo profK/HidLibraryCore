@@ -8,15 +8,15 @@
     ".NETCoreApp,Version=v5.0": {
       "EnumTest/1.0.0": {
         "dependencies": {
-          "HidLibrary": "1.0.0"
+          "HidLibraryCore": "1.0.1"
         },
         "runtime": {
           "EnumTest.dll": {}
         }
       },
-      "HidLibrary/1.0.0": {
+      "HidLibraryCore/1.0.1": {
         "runtime": {
-          "HidLibrary.dll": {}
+          "HidLibraryCore.dll": {}
         }
       }
     }
@@ -27,7 +27,7 @@
       "serviceable": false,
       "sha512": ""
     },
-    "HidLibrary/1.0.0": {
+    "HidLibraryCore/1.0.1": {
       "type": "project",
       "serviceable": false,
       "sha512": ""

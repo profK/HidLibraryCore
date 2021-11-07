@@ -18,6 +18,7 @@ namespace HidLibrary
 
         private readonly HidDeviceCapabilities _deviceCapabilities;
         private readonly HidDeviceButtons _deviceButtons;
+        private readonly HidDeviceCollection _deviceCollection;
         private DeviceMode _deviceReadMode = DeviceMode.NonOverlapped;
         private DeviceMode _deviceWriteMode = DeviceMode.NonOverlapped;
 
@@ -66,6 +67,11 @@ namespace HidLibrary
         public HidDeviceButtons Buttons
         {
             get { return _deviceButtons; }
+        }
+        
+        public HidDeviceCollection[] Collections
+        {
+            get { return _deviceCollections; }
         }
         
         public string Name
@@ -562,7 +568,44 @@ namespace HidLibrary
                 return new HidDeviceButtons();
             }
         }
-        
+
+        private static HidCollectionNode[] GetCollections(
+            IntPtr hidHandle, ushort numCollections,int firstIndex)
+        {
+            if (numCollections >0){
+                var preparsedDataPointer = default(IntPtr);
+
+                if (NativeMethods.HidD_GetPreparsedData(hidHandle, ref preparsedDataPointer))
+                {
+
+                    var structSize = Marshal.SizeOf(typeof(NativeMethods.HIDP_LINK_COLLECTION_NODE));
+                    var allocSize =  structSize * numCollections;
+                    var collectionsBuffer = Marshal.AllocHGlobal(allocSize);
+                    
+                    NativeMethods.HIDP_LINK_COLLECTION_NODE[] collectionNodes =
+                        new NativeMethods.HIDP_LINK_COLLECTION_NODE[numCollections];
+                    ulong lnumCollections = (ulong) numCollections;
+                    int val = (NativeMethods.HidP_GetLinkCollectionNodes(
+                        collectionsBuffer,ref lnumCollections,preparsedDataPointer)
+                    //todo check return value
+                    for (int idx = 0; idx < numCollections; idx++)
+                    {
+                        IntPtr cStruct = collectionsBuffer + (idx * structSize);
+                        var csStruct = (NativeMethods.HIDP_LINK_COLLECTION_NODE) Marshal.PtrToStructure(cStruct,
+                            typeof(NativeMethods.HIDP_LINK_COLLECTION_NODE));
+                        collectionNodes[idx] = csStruct;
+                    }
+                    
+                    Marshal.FreeHGlobal(collectionsBuffer); // return sys mem
+
+                    HidCollectionNode root =
+                        new HidCollectionNode(firstIndex, collectionNodes);
+                }
+                else
+                {
+                    return new HidCollectionNode[0];
+                }
+        }
         private static void Intptr2StructArray<T>(IntPtr unmanagedArray, 
             int length, out T[] mangagedArray)
         {

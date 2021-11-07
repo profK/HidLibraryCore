@@ -1,6 +1,6 @@
 ﻿namespace HidLibrary
 {
-    public class HIDUsages
+    public static class HIDUsages
     {
         public enum Desktop
         {

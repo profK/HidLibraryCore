@@ -2,28 +2,28 @@
   "version": 3,
   "targets": {
     "net5.0": {
-      "HidLibrary/1.0.0": {
+      "HidLibraryCore/1.0.1": {
         "type": "project",
         "framework": ".NETCoreApp,Version=v5.0",
         "compile": {
-          "bin/placeholder/HidLibrary.dll": {}
+          "bin/placeholder/HidLibraryCore.dll": {}
         },
         "runtime": {
-          "bin/placeholder/HidLibrary.dll": {}
+          "bin/placeholder/HidLibraryCore.dll": {}
         }
       }
     }
   },
   "libraries": {
-    "HidLibrary/1.0.0": {
+    "HidLibraryCore/1.0.1": {
       "type": "project",
-      "path": "../HidLibrary/HidLibrary.csproj",
-      "msbuildProject": "../HidLibrary/HidLibrary.csproj"
+      "path": "../HidLibraryCore/HidLibraryCore.csproj",
+      "msbuildProject": "../HidLibraryCore/HidLibraryCore.csproj"
     }
   },
   "projectFileDependencyGroups": {
     "net5.0": [
-      "HidLibrary >= 1.0.0"
+      "HidLibraryCore >= 1.0.1"
     ]
   },
   "packageFolders": {
@@ -33,7 +33,7 @@
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
-    "version": "1.0.0",
+    "version": "1.0.1",
     "restore": {
       "projectUniqueName": "D:\\projects\\RiderProjects\\HidLibraryCore\\EnumTest\\EnumTest.csproj",
       "projectName": "EnumTest",
@@ -66,8 +66,8 @@
         "net5.0": {
           "targetAlias": "net5.0",
           "projectReferences": {
-            "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibrary\\HidLibrary.csproj": {
-              "projectPath": "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibrary\\HidLibrary.csproj"
+            "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibraryCore\\HidLibraryCore.csproj": {
+              "projectPath": "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibraryCore\\HidLibraryCore.csproj"
             }
           }
         }

@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace HidLibrary
@@ -41,6 +42,32 @@ namespace HidLibrary
                 }
             }
         }
+
+        public ushort[] Usages
+        {
+            get
+            {
+                if (buttonCaps.IsRange)
+                {
+                    List<ushort> usageList = new List<ushort>();
+                    for (ushort b = buttonCaps.Range.UsageMin;
+                        b <= buttonCaps.Range.UsageMax;
+                        b++)
+                    {
+                        usageList.Add(b);
+                    }
+
+                    return usageList.ToArray();
+                }
+                else
+                {
+                    ushort[] result = new ushort[1];
+                    result[0] = buttonCaps.NotRange.Usage;
+                    return result;
+                }
+            }
+        }
+        
     }
     public class HidDeviceButtons
     {
@@ -59,4 +86,6 @@ namespace HidLibrary
             }
         }
     }
+    
+    
 }

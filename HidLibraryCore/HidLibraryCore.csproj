@@ -3,6 +3,9 @@
     <PropertyGroup>
         <TargetFramework>net5.0</TargetFramework>
         <Nullable>enable</Nullable>
+        <RootNamespace>HidLibrary</RootNamespace>
+        <AssemblyVersion>1.0.0.1</AssemblyVersion>
+        <PackageVersion>1.0.1</PackageVersion>
     </PropertyGroup>
 
     <ItemGroup>

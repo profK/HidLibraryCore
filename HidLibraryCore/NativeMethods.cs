@@ -413,5 +413,26 @@ namespace HidLibrary
 
         [DllImport("hid.dll", CharSet = CharSet.Unicode)]
         internal static extern bool HidD_GetSerialNumberString(IntPtr hidDeviceObject, ref byte lpReportBuffer, int reportBufferLength);
+        
+        [StructLayout(LayoutKind.Sequential)]
+        public struct HIDP_LINK_COLLECTION_NODE {
+	        public ushort  LinkUsage;
+	        public ushort  LinkUsagePage;
+	        public ushort Parent;
+	        public ushort NumberOfChildren;
+	        public ushort NextSibling;
+	        public ushort FirstChild;
+	        public ushort  CollectionType;
+	        public ulong  IsAlias;
+	        public ulong  Reserved;
+	        public IntPtr  UserContext;
+        }
+        
+        [DllImport("hid.dll", CharSet = CharSet.Unicode)]
+        internal static extern int HidP_GetLinkCollectionNodes(
+	        IntPtr linkCollectionNodes,
+			ref ulong linkCollectionNodesLength,
+	        IntPtr preparsedData
+        );
     }
 }

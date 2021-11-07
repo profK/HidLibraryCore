@@ -5,7 +5,7 @@
   },
   "projects": {
     "D:\\projects\\RiderProjects\\HidLibraryCore\\EnumTest\\EnumTest.csproj": {
-      "version": "1.0.0",
+      "version": "1.0.1",
       "restore": {
         "projectUniqueName": "D:\\projects\\RiderProjects\\HidLibraryCore\\EnumTest\\EnumTest.csproj",
         "projectName": "EnumTest",
@@ -38,8 +38,8 @@
           "net5.0": {
             "targetAlias": "net5.0",
             "projectReferences": {
-              "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibrary\\HidLibrary.csproj": {
-                "projectPath": "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibrary\\HidLibrary.csproj"
+              "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibraryCore\\HidLibraryCore.csproj": {
+                "projectPath": "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibraryCore\\HidLibraryCore.csproj"
               }
             }
           }
@@ -78,14 +78,14 @@
         }
       }
     },
-    "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibrary\\HidLibrary.csproj": {
-      "version": "1.0.0",
+    "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibraryCore\\HidLibraryCore.csproj": {
+      "version": "1.0.1",
       "restore": {
-        "projectUniqueName": "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibrary\\HidLibrary.csproj",
-        "projectName": "HidLibrary",
-        "projectPath": "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibrary\\HidLibrary.csproj",
+        "projectUniqueName": "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibraryCore\\HidLibraryCore.csproj",
+        "projectName": "HidLibraryCore",
+        "projectPath": "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibraryCore\\HidLibraryCore.csproj",
         "packagesPath": "C:\\Users\\jpkessel\\.nuget\\packages\\",
-        "outputPath": "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibrary\\obj\\",
+        "outputPath": "D:\\projects\\RiderProjects\\HidLibraryCore\\HidLibraryCore\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages",
