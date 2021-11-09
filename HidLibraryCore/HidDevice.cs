@@ -15,10 +15,9 @@ namespace HidLibrary
         private readonly string _description;
         private readonly string _devicePath;
         private readonly HidDeviceAttributes _deviceAttributes;
-
+        private readonly HidCollectionNode[] _collectionNodes;
         private readonly HidDeviceCapabilities _deviceCapabilities;
         private readonly HidDeviceButtons _deviceButtons;
-        private readonly HidCollection _rootCollection;
         private DeviceMode _deviceReadMode = DeviceMode.NonOverlapped;
         private DeviceMode _deviceWriteMode = DeviceMode.NonOverlapped;
 
@@ -48,9 +47,13 @@ namespace HidLibrary
                 _deviceCapabilities = GetDeviceCapabilities(hidHandle);
                 _deviceButtons = GetButtonCapabilities(hidHandle,
                     (ushort)_deviceCapabilities.NumberInputButtonCaps);
-                _rootCollection = GetCollection(hidHandle,
-                    (ushort)_deviceCapabilities.NumberLinkCollectionNodes,0);
-                
+                ushort numColl = (ushort) _deviceCapabilities.NumberLinkCollectionNodes;
+                _collectionNodes = new HidCollectionNode[numColl];
+                var hidpCollectionNodes = GetCollections(hidHandle,numColl,0);
+                for (int i=0;i<numColl;i++)
+                {
+                    _collectionNodes[i] = new HidCollectionNode(hidpCollectionNodes[i]);
+                }
                 CloseDeviceIO(hidHandle);
             }
             catch (Exception exception)
@@ -71,9 +74,9 @@ namespace HidLibrary
             get { return _deviceButtons; }
         }
         
-        public HidCollection Collection
+        public HidCollectionNode[] Collections
         {
-            get { return _rootCollection; }
+            get { return _collectionNodes; }
         }
         
         public string Name
@@ -571,7 +574,7 @@ namespace HidLibrary
             }
         }
 
-        private static HidCollection GetCollection(
+        private static NativeMethods.HIDP_LINK_COLLECTION_NODE[] GetCollections(
             IntPtr hidHandle, ushort numCollections,int firstIndex)
         {
             if (numCollections > 0)
@@ -600,17 +603,14 @@ namespace HidLibrary
                     }
 
                     Marshal.FreeHGlobal(collectionsBuffer); // return sys mem
-
-                    HidCollection collection =
-                        new HidCollection(collectionNodes);
-                    return collection;
+                    return collectionNodes;
                 }
                 }
                 else
                 {
-                    return new HidCollection();
+                    return new NativeMethods.HIDP_LINK_COLLECTION_NODE[0];
                 }
-                return new HidCollection();
+                return new NativeMethods.HIDP_LINK_COLLECTION_NODE[0];
             }
 
             

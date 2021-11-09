@@ -35,3 +35,4 @@ C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\refint\
 C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\EnumTest.pdb
 C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\EnumTest.genruntimeconfig.cache
 C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\ref\EnumTest.dll
+C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\EnumTest.csproj.CopyComplete
