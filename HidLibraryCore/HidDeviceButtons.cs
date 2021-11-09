@@ -18,28 +18,18 @@ namespace HidLibrary
         {
             get
             {
-                if (buttonCaps.IsRange)
+                List<string> names = new List<string>();
+                foreach (var usage in Usages)
                 {
-                    int usageMin = buttonCaps.Range.UsageMin;
-                    int usageMax = buttonCaps.Range.UsageMax;
-                    string[] arr = new string[usageMax - usageMin + 1];
-                    for (var usage = usageMin; usage <= usageMax; usage++)
+                   
+                    var usageEnum = Enum.ToObject(typeof(HIDUsages.Desktop), usage);
+                    if (Enum.IsDefined(typeof(HIDUsages.Desktop), usageEnum))
                     {
-                        arr[usage-usageMin] = 
-                            Enum.GetName(typeof(HIDUsages.Desktop),
-                                usage);
+                        names.Add(usageEnum.ToString());
                     }
+                }
 
-                    return arr;
-                }
-                else
-                {
-                    string name = Enum.GetName(typeof(HIDUsages.Desktop),
-                        buttonCaps.NotRange.Usage);
-                    string[] arr = new string[1];
-                    arr[0] = name;
-                    return arr;
-                }
+                return names.ToArray();
             }
         }
 
@@ -66,6 +56,11 @@ namespace HidLibrary
                     return result;
                 }
             }
+        }
+
+        public int CollectionID()
+        {
+            return buttonCaps.LinkCollection;
         }
         
     }
