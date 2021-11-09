@@ -2,22 +2,26 @@
 
 namespace HidLibrary
 {
+   
     public class HidCollectionNode
     {
         public ushort UsagePage { get; private set; } 
         public ushort Usage { get; private set; } 
         
         public HidCollectionNode? Parent { get; private set; }
-        public ushort CollectionType { get; private set; }
+        public uint CollectionType { get; private set; }
+        public HidCollectionNode[] Children { get; private set; }
 
-        internal HidCollectionNode(int nodeIndex,
+        internal HidCollectionNode(
             NativeMethods.HIDP_LINK_COLLECTION_NODE[] nodes,
-            HidCollectionNode parent): this(nodeIndex, nodes)
+            int index,
+            HidCollectionNode parent): this(nodes,index)
         {
             Parent = parent;
         }
-        internal HidCollectionNode(int nodeIndex,
-            NativeMethods.HIDP_LINK_COLLECTION_NODE[] nodes)
+        internal HidCollectionNode(
+            NativeMethods.HIDP_LINK_COLLECTION_NODE[] nodes,
+            int nodeIndex)
         {
             var node = nodes[nodeIndex];
             UsagePage = node.LinkUsagePage;
@@ -25,13 +29,14 @@ namespace HidLibrary
             Parent = null;
             CollectionType = node.CollectionType;
             List<HidCollectionNode> childList = new List<HidCollectionNode>();
-            for (int childNum = 0;
-                childNum < node.NumberOfChildren;
-                childNum++)
+            int currentChild = node.FirstChild;
+            do
             {
-                childList.Add(new HidCollectionNode(
-                    node.FirstChild+childNum,nodes,this));
-            }
+                childList.Add(new HidCollectionNode(nodes, currentChild,
+                    this));
+                currentChild = nodes[currentChild].NextSibling;
+            } while (currentChild != 0);
+            Children = childList.ToArray();
         }
     }
 }

@@ -1,6 +1,7 @@
 ﻿// See https://aka.ms/new-console-template for more information
 
 using System;
+using System.CodeDom.Compiler;
 using System.Linq;
 using System.Text;
 using System.Threading;
@@ -11,24 +12,28 @@ namespace Enumtest
 {
     class Program
     {
+        static void PrintCollection(HidCollectionNode node,int indent=0)
+        {
+            char[] cInd = new char[indent];
+            Array.Fill<char>(cInd, ' ');
+            string ind = cInd.ToString();
+            Console.WriteLine(Enum.ToObject(typeof(HIDUsages.Desktop),node.Usage));
+            foreach (var child in node.Children)
+            {
+                PrintCollection(node,indent+4);
+            }
+        }
         static void Main(string[] argv)
         {
             
             foreach (var dev in HidDevices.Enumerate().ToArray())
             {
-                if (dev.Name.Contains("aitek") )
+                Console.WriteLine(dev.Name.Trim()+":"+dev.Capabilities.Usage);
+                foreach (var node in dev.Collection.RootNodes)
                 {
-                    Console.WriteLine(dev.Name.Trim()+":"+dev.Capabilities.Usage);
-                    Console.WriteLine("Button Count: "+dev.Capabilities.NumberInputButtonCaps);
+                    PrintCollection(node);
+                }
                     
-                        foreach (var button in dev.Buttons.buttons)
-                        {
-                            foreach (var name in button.Names)
-                                if (name != null)
-                                    Console.WriteLine("  " + name);
-                        }
-                    }
-
             }
         }
     }

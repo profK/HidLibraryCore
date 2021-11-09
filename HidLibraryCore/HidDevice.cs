@@ -18,7 +18,7 @@ namespace HidLibrary
 
         private readonly HidDeviceCapabilities _deviceCapabilities;
         private readonly HidDeviceButtons _deviceButtons;
-        private readonly HidDeviceCollection _deviceCollection;
+        private readonly HidCollection _rootCollection;
         private DeviceMode _deviceReadMode = DeviceMode.NonOverlapped;
         private DeviceMode _deviceWriteMode = DeviceMode.NonOverlapped;
 
@@ -48,7 +48,9 @@ namespace HidLibrary
                 _deviceCapabilities = GetDeviceCapabilities(hidHandle);
                 _deviceButtons = GetButtonCapabilities(hidHandle,
                     (ushort)_deviceCapabilities.NumberInputButtonCaps);
-
+                _rootCollection = GetCollection(hidHandle,
+                    (ushort)_deviceCapabilities.NumberLinkCollectionNodes,0);
+                
                 CloseDeviceIO(hidHandle);
             }
             catch (Exception exception)
@@ -69,9 +71,9 @@ namespace HidLibrary
             get { return _deviceButtons; }
         }
         
-        public HidDeviceCollection[] Collections
+        public HidCollection Collection
         {
-            get { return _deviceCollections; }
+            get { return _rootCollection; }
         }
         
         public string Name
@@ -569,24 +571,25 @@ namespace HidLibrary
             }
         }
 
-        private static HidCollectionNode[] GetCollections(
+        private static HidCollection GetCollection(
             IntPtr hidHandle, ushort numCollections,int firstIndex)
         {
-            if (numCollections >0){
+            if (numCollections > 0)
+            {
                 var preparsedDataPointer = default(IntPtr);
 
                 if (NativeMethods.HidD_GetPreparsedData(hidHandle, ref preparsedDataPointer))
                 {
 
                     var structSize = Marshal.SizeOf(typeof(NativeMethods.HIDP_LINK_COLLECTION_NODE));
-                    var allocSize =  structSize * numCollections;
+                    var allocSize = structSize * numCollections;
                     var collectionsBuffer = Marshal.AllocHGlobal(allocSize);
-                    
+
                     NativeMethods.HIDP_LINK_COLLECTION_NODE[] collectionNodes =
                         new NativeMethods.HIDP_LINK_COLLECTION_NODE[numCollections];
                     ulong lnumCollections = (ulong) numCollections;
-                    int val = (NativeMethods.HidP_GetLinkCollectionNodes(
-                        collectionsBuffer,ref lnumCollections,preparsedDataPointer)
+                    int val = NativeMethods.HidP_GetLinkCollectionNodes(
+                        collectionsBuffer, ref lnumCollections, preparsedDataPointer);
                     //todo check return value
                     for (int idx = 0; idx < numCollections; idx++)
                     {
@@ -595,16 +598,19 @@ namespace HidLibrary
                             typeof(NativeMethods.HIDP_LINK_COLLECTION_NODE));
                         collectionNodes[idx] = csStruct;
                     }
-                    
+
                     Marshal.FreeHGlobal(collectionsBuffer); // return sys mem
 
-                    HidCollectionNode root =
-                        new HidCollectionNode(firstIndex, collectionNodes);
+                    HidCollection collection =
+                        new HidCollection(collectionNodes);
                 }
                 else
                 {
-                    return new HidCollectionNode[0];
+                    return null;
                 }
+            }
+
+            return null;
         }
         private static void Intptr2StructArray<T>(IntPtr unmanagedArray, 
             int length, out T[] mangagedArray)
