@@ -16,11 +16,11 @@ namespace Enumtest
         {
             char[] cInd = new char[indent];
             Array.Fill<char>(cInd, ' ');
-            string ind = cInd.ToString();
-            Console.WriteLine(Enum.ToObject(typeof(HIDUsages.Desktop),node.Usage));
+            string ind = new string(cInd);
+            Console.WriteLine(ind+Enum.ToObject(typeof(HIDUsages.Desktop),node.Usage));
             foreach (var child in node.Children)
             {
-                PrintCollection(node,indent+4);
+                PrintCollection(child,indent+4);
             }
         }
         static void Main(string[] argv)
@@ -31,7 +31,7 @@ namespace Enumtest
                 Console.WriteLine(dev.Name.Trim()+":"+dev.Capabilities.Usage);
                 foreach (var node in dev.Collection.RootNodes)
                 {
-                    PrintCollection(node);
+                    PrintCollection(node,4);
                 }
                     
             }

@@ -30,12 +30,12 @@ namespace HidLibrary
             CollectionType = node.CollectionType;
             List<HidCollectionNode> childList = new List<HidCollectionNode>();
             int currentChild = node.FirstChild;
-            do
+            while (currentChild!=0)
             {
                 childList.Add(new HidCollectionNode(nodes, currentChild,
                     this));
                 currentChild = nodes[currentChild].NextSibling;
-            } while (currentChild != 0);
+            } 
             Children = childList.ToArray();
         }
     }

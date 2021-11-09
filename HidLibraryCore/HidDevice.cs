@@ -603,15 +603,17 @@ namespace HidLibrary
 
                     HidCollection collection =
                         new HidCollection(collectionNodes);
+                    return collection;
+                }
                 }
                 else
                 {
-                    return null;
+                    return new HidCollection();
                 }
+                return new HidCollection();
             }
 
-            return null;
-        }
+            
         private static void Intptr2StructArray<T>(IntPtr unmanagedArray, 
             int length, out T[] mangagedArray)
         {

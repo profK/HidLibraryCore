@@ -18,5 +18,10 @@ namespace HidLibrary
 
             RootNodes = nlist.ToArray();
         }
+
+        public HidCollection()
+        {
+            RootNodes = new HidCollectionNode[0];
+        }
     }
 }
