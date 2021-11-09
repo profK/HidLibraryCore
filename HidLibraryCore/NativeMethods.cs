@@ -434,7 +434,7 @@ namespace HidLibrary
 	        public bool IsAlias;
 	        // 23 reserved bits
 	        [FieldOffset(16)]
-	        public UInt32  UserContext;
+	        public UInt64  UserContext;
         }
         
         [DllImport("hid.dll", CharSet = CharSet.Unicode)]
