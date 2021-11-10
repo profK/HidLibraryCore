@@ -16,7 +16,6 @@ D:\projects\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\EnumTest.genr
 D:\projects\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\ref\EnumTest.dll
 D:\projects\RiderProjects\HidLibraryCore\EnumTest\bin\Debug\net5.0\HidLibraryCore.dll
 D:\projects\RiderProjects\HidLibraryCore\EnumTest\bin\Debug\net5.0\HidLibraryCore.pdb
-D:\projects\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\EnumTest.csproj.CopyComplete
 C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\bin\Debug\net5.0\EnumTest.exe
 C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\bin\Debug\net5.0\EnumTest.deps.json
 C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\bin\Debug\net5.0\EnumTest.runtimeconfig.json
@@ -35,3 +34,4 @@ C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\refint\
 C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\EnumTest.pdb
 C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\EnumTest.genruntimeconfig.cache
 C:\Users\jpkessel\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\ref\EnumTest.dll
+D:\projects\RiderProjects\HidLibraryCore\EnumTest\obj\Debug\net5.0\EnumTest.csproj.CopyComplete

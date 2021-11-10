@@ -21,9 +21,12 @@ namespace Enumtest
             {
                 if (hidButton.CollectionID() == nodeIdx)
                 {
-                    foreach (var name in hidButton.Names)
+                    foreach (var usage in hidButton.Usages)
                     {
-                        Console.WriteLine(newIndent+name);
+                        Console.WriteLine(indent+
+                                          Enum.ToObject(typeof(HIDUsages.UsagePages),hidButton.UsagePage).ToString()+
+                                          ":"+ 
+                                          Enum.ToObject(typeof(HIDUsages.Desktop),usage).ToString());
                     }
                 }
             }
@@ -38,8 +41,13 @@ namespace Enumtest
             
             foreach (var dev in HidDevices.Enumerate().ToArray())
             {
-                Console.WriteLine(dev.Name.Trim()+":"+dev.Capabilities.Usage);
-                PrintCollections(0,dev,"    ");
+                if (dev.Name.Contains("aitek"))
+                {
+                    Console.WriteLine(dev.Name.Trim()+":"+dev.Capabilities.Usage);
+                    PrintCollections(0,dev,"    ");
+
+                }
+               
 
             }
         }

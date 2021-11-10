@@ -20,71 +20,7 @@ namespace HidLibrary
 
 	    internal const int WAIT_INFINITE = 0xffff;
 
-	    #region Button Caps
-	    public enum HIDP_REPORT_TYPE : UInt32
-    {
-        HidP_Input,
-        HidP_Output,
-        HidP_Feature
-    }
-
-    public struct ButtonCapsRange
-    {
-        public ushort UsageMin;
-        public ushort UsageMax;
-        public ushort StringMin;
-        public ushort StringMax;
-        public ushort DesignatorMin;
-        public ushort DesignatorMax;
-        public ushort DataIndexMin;
-        public ushort DataIndexMax;
-    }
-
-    public struct ButtonCapsNotRange
-    {
-        public ushort Usage;
-        public ushort Reserved1;
-        public ushort StringIndex;
-        public ushort Reserved2;
-        public ushort DesignatorIndex;
-        public ushort Reserved3;
-        public ushort DataIndex;
-        public ushort Reserved4;
-    }
-
-    [StructLayout(LayoutKind.Explicit)]
-    public struct HIDP_BUTTON_CAPS
-    {
-        [FieldOffset(0)]
-        public ushort UsagePage;
-        [FieldOffset(2)]
-        public byte ReportID;
-        [FieldOffset(3)]
-        public bool IsAlias;
-        [FieldOffset(4)]
-        public ushort BitField;
-        [FieldOffset(6)]
-        public ushort LinkCollection;
-        [FieldOffset(8)]
-        public ushort LinkUsage;
-        [FieldOffset(10)]
-        public ushort LinkUsagePage;
-        [FieldOffset(12)]
-        public bool IsRange;
-        [FieldOffset(13)]
-        public bool IsStringRange;
-        [FieldOffset(14)]
-        public bool IsDesignatorRange;
-        [FieldOffset(15)]
-        public bool IsAbsolute;
-        //[FieldOffset(16)]
-        //public uint[] Reserved;
-        [FieldOffset(16 + 10 * 4)]
-        public ButtonCapsRange Range;
-        [FieldOffset(16 + 10 * 4)]
-        public ButtonCapsNotRange NotRange;
-    }
-    #endregion
+	 
 	    [StructLayout(LayoutKind.Sequential)]
 	    internal struct OVERLAPPED
 	    {
@@ -320,44 +256,147 @@ namespace HidLibrary
 		    internal short NumberFeatureDataIndices;
 	    }
 	    
-	    
+	    #region Button Caps
+	    public enum HIDP_REPORT_TYPE : UInt32
+	    {
+		    HidP_Input,
+		    HidP_Output,
+		    HidP_Feature
+	    }
+
+	    public struct ButtonCapsRange
+	    {
+		    public ushort UsageMin;
+		    public ushort UsageMax;
+		    public ushort StringMin;
+		    public ushort StringMax;
+		    public ushort DesignatorMin;
+		    public ushort DesignatorMax;
+		    public ushort DataIndexMin;
+		    public ushort DataIndexMax;
+	    }
+
+	    public struct ButtonCapsNotRange
+	    {
+		    public ushort Usage;
+		    public ushort Reserved1;
+		    public ushort StringIndex;
+		    public ushort Reserved2;
+		    public ushort DesignatorIndex;
+		    public ushort Reserved3;
+		    public ushort DataIndex;
+		    public ushort Reserved4;
+	    }
+
+	    [StructLayout(LayoutKind.Explicit)]
+	    public struct HIDP_BUTTON_CAPS
+	    {
+		    [FieldOffset(0)]
+		    public ushort UsagePage;
+		    [FieldOffset(2)]
+		    public byte ReportID;
+		    [FieldOffset(3)]
+		    public bool IsAlias;
+		    [FieldOffset(4)]
+		    public ushort BitField;
+		    [FieldOffset(6)]
+		    public ushort LinkCollection;
+		    [FieldOffset(8)]
+		    public ushort LinkUsage;
+		    [FieldOffset(10)]
+		    public ushort LinkUsagePage;
+		    [FieldOffset(12)]
+		    public bool IsRange;
+		    [FieldOffset(13)]
+		    public bool IsStringRange;
+		    [FieldOffset(14)]
+		    public bool IsDesignatorRange;
+		    [FieldOffset(15)]
+		    public bool IsAbsolute;
+		    //[FieldOffset(16)]
+		    //public uint[] Reserved;
+		    [FieldOffset(16 + 10 * 4)]
+		    public ButtonCapsRange Range;
+		    [FieldOffset(16 + 10 * 4)]
+		    public ButtonCapsNotRange NotRange;
+	    }
+	    #endregion
 
 	    [StructLayout(LayoutKind.Sequential)]
-	    internal struct HIDP_VALUE_CAPS
+	    public struct ValueCapsRange
 	    {
-		    internal short UsagePage;
-		    internal byte ReportID;
-		    internal int IsAlias;
-		    internal short BitField;
-		    internal short LinkCollection;
-		    internal short LinkUsage;
-		    internal short LinkUsagePage;
-		    internal int IsRange;
-		    internal int IsStringRange;
-		    internal int IsDesignatorRange;
-		    internal int IsAbsolute;
-		    internal int HasNull;
-		    internal byte Reserved;
-		    internal short BitSize;
-		    internal short ReportCount;
-		    internal short Reserved2;
-		    internal short Reserved3;
-		    internal short Reserved4;
-		    internal short Reserved5;
-		    internal short Reserved6;
-		    internal int LogicalMin;
-		    internal int LogicalMax;
-		    internal int PhysicalMin;
-		    internal int PhysicalMax;
-		    internal short UsageMin;
-		    internal short UsageMax;
-		    internal short StringMin;
-		    internal short StringMax;
-		    internal short DesignatorMin;
-		    internal short DesignatorMax;
-		    internal short DataIndexMin;
-		    internal short DataIndexMax;
+		    public ushort UsageMin;
+		    public ushort UsageMax;
+		    public ushort StringMin;
+		    public ushort StringMax;
+		    public ushort DesignatorMin;
+		    public ushort DesignatorMax;
+		    public ushort DataIndexMin;
+		    public ushort DataIndexMax;
 	    }
+	    
+	    [StructLayout(LayoutKind.Sequential)]
+	    struct ValueCapsNotRange{
+		    ushort  Usage;
+		    ushort  Reserved1;
+		    ushort StringIndex;
+		    ushort Reserved2;
+		    ushort DesignatorIndex;
+		    ushort Reserved3;
+		    ushort DataIndex;
+		    ushort Reserved4;
+	    } 
+
+	    [StructLayout(LayoutKind.Explicit)]
+	    public struct HIDP_VALUE_CAPS {
+		    [FieldOffset(0)]
+		    public ushort UsagePage;
+		    [FieldOffset(2)]
+		    public byte ReportID;
+		    [FieldOffset(3)]
+		    public bool IsAlias;
+		    [FieldOffset(4)]
+		    public ushort BitField;
+		    [FieldOffset(6)]
+		    public ushort LinkCollection;
+		    [FieldOffset(8)]
+		    public ushort LinkUsage;
+		    [FieldOffset(10)]
+		    public ushort LinkUsagePage;
+		    [FieldOffset(12)]
+		    public bool IsRange;
+		    [FieldOffset(13)]
+		    public bool IsStringRange;
+		    [FieldOffset(14)]
+		    public bool IsDesignatorRange;
+		    [FieldOffset(15)]
+		    public bool IsAbsolute;
+		    [FieldOffset(16)]
+		    public bool HasNull;
+		    //UCHAR   Reserved;
+		    [FieldOffset(18)]
+		    ushort  BitSize;
+		    [FieldOffset(20)]
+		    ushort  ReportCount;
+		    //[FieldOffset(22)]
+		    // ushort  Reserved2[5]; 2*5 = 10
+		    [FieldOffset(32)]
+		    ushort   UnitsExp;
+		    [FieldOffset(34)]
+		    UInt32   Units;
+		    [FieldOffset(38)]
+		    Int32    LogicalMin;
+		    [FieldOffset(42)]
+		    Int32    LogicalMax;
+		    [FieldOffset(46)]
+		    Int32    PhysicalMin;
+		    [FieldOffset(50)]
+		    Int32    PhysicalMax;
+		    [FieldOffset(54)] 
+		    private ValueCapsRange Range;
+		    [FieldOffset(54)] 
+		    private ValueCapsNotRange NotRange;
+	    };
 
 	    [DllImport("hid.dll")]
 	    static internal extern bool HidD_FlushQueue(IntPtr hidDeviceObject);

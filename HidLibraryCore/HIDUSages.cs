@@ -1,7 +1,57 @@
 ﻿namespace HidLibrary
 {
-    public static class HIDUsages
-    {
+	public static class HIDUsages
+	{
+		public enum UsagePages
+		{
+		Generic_Desktop_Page = 0x01,
+		Simulation_Controls_Page = 0x02,
+		VR_Controls_Page = 0x03,
+		Sport_Controls_Page = 0x04,
+		Game_Controls_Page = 0x05,
+		Generic_Device_Controls_Page = 0x06,
+		Keyboard_Keypad_Page = 0x07,
+		LED_Page = 0x08,
+		Button_Page = 0x09,
+		Ordinal_Page = 0x0A,
+		Telephony_Device_Page = 0x0B,
+		Consumer_Page = 0x0C,
+		Digitizers_Page = 0x0D,
+		Haptics_Page = 0x0E,
+		PID_Page = 0x0F,
+		Unicode_Page = 0x10,
+		//Reserved = 0x11,
+		Eye_and_Head_Trackers_Page = 0x12,
+		//Reserved = 0x013,
+		Auxiliary_Display_Page = 0x14,
+		//Reserved = 0x15,
+		Sensors_Page = 0x20,
+		//Reserved = 0x21
+		Medical_Instrument_Page = 0x40,
+		Braille_Display_Page = 0x41,
+		//Reserved = 0x42,
+		Lighting_And_Illumination_Page = 0x59,
+		//Reserved = 0x60,
+		Monitor_Page_1 = 0x80,
+		Monitor_Page_2 = 0x81,
+		Monitor_Page_3 = 0x82,
+		Monitor_Page_4 = 0x83,
+		Power_Pages_1 = 0x84,
+		Power_Pages_2 = 0x85,
+		Power_Pages_3 = 0x86,
+		Power_Pages_4 = 0x87,
+		Reserved = 0x88,
+		Bar_Code_Scanner_page = 0x8C,
+		Scale_page = 0x8D,
+		Magnetic_Stripe_Reading_Devices = 0x8E,
+		Reserved_Point_of_Sale_pages = 0x8F,
+		Camera_Control_Page = 0x90,
+		Arcade_Page = 0x91,
+		Gaming_Device_Page = 0x92,
+		//Reserved = 0x93,
+		FIDO_Alliance_Page = 0xF1D0
+		};
+		
         public enum Desktop
         {
             Undefined= 0x00,
@@ -51,6 +101,11 @@
         	D_pad_Down = 0x91,
         	D_pad_Right = 0x92,
         	D_pad_Left = 0x93
+        }
+
+        public enum Buttons
+        {
+	        
         }
     }
 }

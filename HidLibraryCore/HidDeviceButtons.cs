@@ -32,6 +32,15 @@ namespace HidLibrary
                 return names.ToArray();
             }
         }
+        
+        public ushort UsagePage
+        {
+            get
+            {
+                return buttonCaps.UsagePage;
+            }
+            
+        }
 
         public ushort[] Usages
         {
@@ -56,7 +65,11 @@ namespace HidLibrary
                     return result;
                 }
             }
+            
+            
         }
+        
+      
 
         public int CollectionID()
         {

@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "oONCNVR2/6h8cj8tkLiA7CFy8ztYypEwUDxM6rt3k7eqO2z++MN6O7rIGZJjAR6hw8tJPn6leeshiCUnkJyTGQ==",
+  "dgSpecHash": "r3Tj0CxFRFnmdPQPgVY1Bhmxai7EYTU0U/f8oQKiVsuU6W05OstUFu5extuFJ3lOPdGsgJLc8AEoHn8Oos2Wrg==",
   "success": true,
-  "projectFilePath": "C:\\Users\\jpkessel\\RiderProjects\\HidLibraryCore\\EnumTest\\EnumTest.csproj",
+  "projectFilePath": "D:\\projects\\RiderProjects\\HidLibraryCore\\EnumTest\\EnumTest.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\jpkessel\\.nuget\\packages\\hidlibrarycore\\1.0.1\\hidlibrarycore.1.0.1.nupkg.sha512",
     "C:\\Users\\jpkessel\\.nuget\\packages\\microsoft.netcore.app.host.win-x64\\5.0.8\\microsoft.netcore.app.host.win-x64.5.0.8.nupkg.sha512"
   ],
   "logs": []
